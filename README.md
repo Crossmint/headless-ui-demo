@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a demo app that implements a basic UI for the Crossmint Headless NFT Checkout.
 
-## Getting Started
+UI sample code in `/app/components/checkout.tsx`.
 
-First, run the development server:
+The `checkout.tsx` makes API requests to `/orders`, which then makes the API calls to the Crossmint API. This is required because the update and get order APIs only function with a server-side API key. It is possible to create orders with a client-side key, but this demo simply uses the same server-side key for all calls to Crossmint.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+See how to setup rainbowkit and related packages in `app/page.tsx`.
+
+You'll also need to copy the `env.sample` to `.env.local` and set your variables.
+
+```
+NEXT_PUBLIC_CROSSMINT_COLLECTION_ID=
+NEXT_PUBLIC_WALLET_CONNECT_ID=
+CROSSMINT_API_KEY=
+CROSSMINT_API_URL=https://staging.crossmint.com/api/2024-01-01
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Refer to https://docs.crossmint.com/nft-checkout/headless/overview for more info!
+API Reference: https://docs.crossmint.com/api-reference/headless
